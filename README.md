@@ -1,4 +1,9 @@
+
 An unofficial in-line editor for the `guard` property of the `Transition` node. Depends on **Godot State Charts** by **Jan Thomä & Contributors**.
+
+<br>
+
+https://github.com/Granshmeyr/guard-editor-for-godot-state-charts/raw/refs/heads/main/demo.mp4
 
 <br>
 
