@@ -1,4 +1,5 @@
 
+
 An unofficial in-line editor for the `guard` property of the `Transition` node. Depends on **Godot State Charts** by **Jan Thomä & Contributors**.
 
 <br>
@@ -25,6 +26,7 @@ https://github.com/user-attachments/assets/d644c171-3896-43ad-90b3-d562c771c87a
 
 ## Caveat
 
+- There is no undo functionality.
 - Editor state is not synced to the actual state of `Transition`'s `guard` property. If you update guards in the original `Resource` editor, Guard Editor's state will not update. There is an option to disable the original editor (enabled by default).
 - Is opinionated in visual design, with emphasis on brevity and condensed information.
 - Only supports built-in guards, but should be easily extendable.
