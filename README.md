@@ -9,7 +9,7 @@ https://github.com/user-attachments/assets/d644c171-3896-43ad-90b3-d562c771c87a
 
 > What problem does this solve?
 
-`Transition` guards are edited using the default `Resource` editor. On top of the horrible nesting, guards recursively collapse when clicking away. With this editor, nothing will ever collapse and nesting is displayed using the standard `Tree` control.
+`Transition` guards are edited using the default `Resource` editor. On top of the horrible nesting, guards recursively collapse when clicking away. With this editor nothing will ever collapse and nesting is displayed using the standard `Tree` control.
 
 <br>
 
