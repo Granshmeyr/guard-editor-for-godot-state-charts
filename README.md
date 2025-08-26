@@ -3,7 +3,7 @@ An unofficial in-line editor for the `guard` property of the `Transition` node. 
 
 <br>
 
-https://github.com/user-attachments/assets/6853c2ee-aa05-4942-965b-349ae0420ac5
+https://github.com/user-attachments/assets/d644c171-3896-43ad-90b3-d562c771c87a
 
 <br>
 
