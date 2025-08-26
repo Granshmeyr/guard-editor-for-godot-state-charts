@@ -3,7 +3,7 @@ An unofficial in-line editor for the `guard` property of the `Transition` node. 
 
 <br>
 
-https://github.com/Granshmeyr/guard-editor-for-godot-state-charts/raw/refs/heads/main/demo.mp4
+https://youtu.be/aXoi3qQYuE8
 
 <br>
 
