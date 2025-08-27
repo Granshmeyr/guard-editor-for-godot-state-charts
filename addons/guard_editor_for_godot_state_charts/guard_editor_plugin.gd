@@ -57,7 +57,7 @@ func _ensure_editor_settings() -> void:
 		TYPE_INT,
 		PROPERTY_HINT_NONE,
 		"Determines the width of indent guides.",
-		1 * editor_scale,
+		maxi(1, floori(1 * editor_scale)),
 	)
 	_add_setting_if_missing(
 		es,
@@ -65,7 +65,7 @@ func _ensure_editor_settings() -> void:
 		TYPE_INT,
 		PROPERTY_HINT_NONE,
 		"Determines the size of the indent margin.",
-		15 * editor_scale,
+		floori(15 * editor_scale),
 	)
 	_add_setting_if_missing(
 		es,
@@ -73,7 +73,7 @@ func _ensure_editor_settings() -> void:
 		TYPE_INT,
 		PROPERTY_HINT_NONE,
 		"Determines the height of the added editor control.",
-		250 * editor_scale,
+		floori(250 * editor_scale),
 	)
 	_add_setting_if_missing(
 		es,
@@ -105,7 +105,7 @@ func _ensure_editor_settings() -> void:
 		TYPE_INT,
 		PROPERTY_HINT_NONE,
 		"Determines the vertical padding between lines.",
-		2 * editor_scale,
+		floori(2 * editor_scale),
 	)
 	_add_setting_if_missing(
 		es,
@@ -113,7 +113,7 @@ func _ensure_editor_settings() -> void:
 		TYPE_INT,
 		PROPERTY_HINT_NONE,
 		"Determines the padding between the guard icon and the label text.",
-		6 * editor_scale,
+		floori(6 * editor_scale),
 	)
 
 
