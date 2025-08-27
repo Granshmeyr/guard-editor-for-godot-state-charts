@@ -162,9 +162,17 @@ func _set_state_is_active_item_path(state_is_active_item: TreeItem, node_path: N
 	else:
 		state_is_active_item.set_text(0, state.name)
 
+	var raw_guard: Guard = Util.get_item_guard(state_is_active_item)
+
+	if raw_guard is NotGuard:
+		state_is_active_item.set_icon(
+			0, GuardEditorPlugin.Util.get_inverted_icon(guard, transition)
+		)
+	else:
+		state_is_active_item.set_icon(0, GuardEditorPlugin.Util.get_corresponding_state_icon(state))
+
 	state_is_active_item.clear_custom_color(0)
 	state_is_active_item.clear_custom_bg_color(0)
-	state_is_active_item.set_icon(0, GuardEditorPlugin.Util.get_corresponding_state_icon(state))
 	state_is_active_item.set_tooltip_text(0, human_readable_node_path)
 
 
