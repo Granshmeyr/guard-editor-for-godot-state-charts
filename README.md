@@ -4,7 +4,7 @@ An unofficial in-line editor for the `guard` property of the `Transition` node. 
 
 <br>
 
-https://github.com/user-attachments/assets/d644c171-3896-43ad-90b3-d562c771c87a
+https://github.com/user-attachments/assets/6773e9ba-bf76-4d3f-9520-5ebf430e9433
 
 <br>
 
