@@ -43,7 +43,7 @@ func _parse_category(object: Object, category: String) -> void:
 
 	var transition: Transition = object
 	var state_chart: StateChart = GuardEditorPlugin.Util.get_ancestor_state_chart(transition)
-	var tree = GuardEditorTree.new(transition, self)
+	var tree: GuardEditorTree = GuardEditorTree.new(transition, self)
 	var root_item: TreeItem = tree.create_item()
 	var first_guard: Guard = transition.guard
 

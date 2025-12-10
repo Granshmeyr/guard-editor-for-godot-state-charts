@@ -82,7 +82,7 @@ func _init(transition: Transition, inspector_plugin: GuardEditorInspectorPlugin)
 	#     BEGIN editor height
 	var editor_height: int = es.get_setting(GuardEditorData.Setting.Key.editor_height)
 
-	custom_minimum_size = Vector2(1000, editor_height)
+	custom_minimum_size = Vector2(80, editor_height)
 	#     END editor height
 
 	#     BEGIN bg color
