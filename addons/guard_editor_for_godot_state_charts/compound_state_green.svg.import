@@ -2,10 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4k0ro4wkvo61"
+uid="uid://bsw51u0mbp41j"
 path="res://.godot/imported/compound_state_green.svg-54088a6c7cf0937313ae39bdb7b3d699.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -16,7 +15,7 @@ dest_files=["res://.godot/imported/compound_state_green.svg-54088a6c7cf0937313ae
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -38,7 +37,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=2
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

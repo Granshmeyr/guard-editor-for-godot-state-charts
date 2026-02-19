@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cttc3uycxjc3j"
-path="res://.godot/imported/atomic_state_green.svg-a460880962e93898f8b9d38fbe1c43ac.ctex"
+uid="uid://dc8vwjv0vfkhl"
+path="res://.godot/imported/icon.png-115a5b06c6696a38af55863e338a339c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/guard_editor_for_godot_state_charts/atomic_state_green.svg"
-dest_files=["res://.godot/imported/atomic_state_green.svg-a460880962e93898f8b9d38fbe1c43ac.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/icon.png"
+dest_files=["res://.godot/imported/icon.png-115a5b06c6696a38af55863e338a339c.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=2
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

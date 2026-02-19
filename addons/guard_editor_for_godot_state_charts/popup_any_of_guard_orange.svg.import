@@ -2,10 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ncmj4k6bhymw"
+uid="uid://cspm1q4pa14xv"
 path="res://.godot/imported/popup_any_of_guard_orange.svg-5bf4b365077f4c2d8fff0c2714858e12.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -16,7 +15,7 @@ dest_files=["res://.godot/imported/popup_any_of_guard_orange.svg-5bf4b365077f4c2
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -38,7 +37,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=2
 svg/scale=1.0
-editor/scale_with_editor_scale=true
+editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false
