@@ -5,6 +5,7 @@ type="CompressedTexture2D"
 uid="uid://cog5vs3jgo4ew"
 path="res://.godot/imported/any_of_guard_orange.svg-42f129a8d43e1bc7121d66662ead9b07.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -39,5 +40,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=2
 svg/scale=1.0
-editor/scale_with_editor_scale=false
+editor/scale_with_editor_scale=true
 editor/convert_colors_with_editor_theme=false
