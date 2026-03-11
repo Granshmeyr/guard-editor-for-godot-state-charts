@@ -156,6 +156,12 @@ class Icon:
 	# END custom
 
 	static func _static_init() -> void:
+		if (
+			EditorInterface == null
+			or not EditorInterface.has_method("get_editor_theme")
+		):
+			return
+
 		var theme: Theme = EditorInterface.get_editor_theme()
 
 		# BEGIN custom
