@@ -85,7 +85,7 @@ class Setting:
 		static var indent_margin: String
 		static var general: String
 
-		static func _static_init():
+		static func _static_init() -> void:
 			root = "guard_editor"
 			settings = "%s/settings" % root
 			separation_lines = "%s/separation_lines" % settings
@@ -112,7 +112,7 @@ class Setting:
 		static var between_line_padding: String
 		static var icon_to_label_padding: String
 
-		static func _static_init():
+		static func _static_init() -> void:
 			draw_separation_lines = "%s/draw_separation_lines" % Section.separation_lines
 			separation_line_color = "%s/separation_line_color" % Section.separation_lines
 			draw_indent_guides = "%s/draw_indent_guides" % Section.indent_guides

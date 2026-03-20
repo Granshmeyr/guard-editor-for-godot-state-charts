@@ -56,7 +56,11 @@ func _parse_category(object: Object, category: String) -> void:
 
 
 func _handle_guard_generic(
-	tree: Tree, parent_item: TreeItem, transition: Transition, state_chart: StateChart, guard: Guard
+	tree: GuardEditorTree,
+	parent_item: TreeItem,
+	transition: Transition,
+	state_chart: StateChart,
+	guard: Guard
 ) -> void:
 	var added_item: TreeItem
 
@@ -98,17 +102,26 @@ func _handle_guard_generic(
 			for child: Guard in guards:
 				_handle_guard_generic(tree, added_item, transition, state_chart, child)
 		elif inverted_guard is ExpressionGuard:
-			added_item = tree.add_expression_guard_item(parent_item, inverted_guard)
+			var expression_guard: ExpressionGuard = inverted_guard
+
+			added_item = tree.add_expression_guard_item(
+				parent_item,
+				expression_guard,
+			)
 			added_item.set_meta("guard", guard)
 			added_item.set_icon(0, GuardEditorData.Icon.not_expression_guard_blue)
 		elif inverted_guard is StateIsActiveGuard:
+			var state_is_active_guard: StateIsActiveGuard = inverted_guard
 			var state_path: NodePath = inverted_guard.get("state")
 			var state: StateChartState
 
 			if transition.has_node(state_path):
 				state = transition.get_node(state_path)
 
-			added_item = tree.add_state_is_active_guard_item(parent_item, inverted_guard)
+			added_item = tree.add_state_is_active_guard_item(
+				parent_item,
+				state_is_active_guard,
+			)
 			added_item.set_meta("guard", guard)
 
 			if state == null or state is AtomicState:
@@ -121,10 +134,16 @@ func _handle_guard_generic(
 				added_item.set_icon(0, GuardEditorData.Icon.not_parallel_state_green)
 
 	elif guard is ExpressionGuard:
-		added_item = tree.add_expression_guard_item(parent_item, guard)
+		added_item = tree.add_expression_guard_item(
+			parent_item,
+			guard as ExpressionGuard,
+		)
 		added_item.set_meta("guard", guard)
 	elif guard is StateIsActiveGuard:
-		added_item = tree.add_state_is_active_guard_item(parent_item, guard)
+		added_item = tree.add_state_is_active_guard_item(
+			parent_item,
+			guard as StateIsActiveGuard,
+		)
 		added_item.set_meta("guard", guard)
 	elif not is_instance_valid(guard):
 		if not parent_item.has_meta("guard"):

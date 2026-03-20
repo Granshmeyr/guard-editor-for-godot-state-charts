@@ -112,7 +112,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if node_paths.is_empty() or node_paths.size() > 1:
 		return false
 
-	var node: Node = get_node(node_paths[0])
+	var node: Node = get_node(node_paths[0] as String)
 
 	if not node is StateChartState:
 		return false
@@ -141,7 +141,12 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _set_state_is_active_item_path(state_is_active_item: TreeItem, node_path: NodePath) -> void:
-	var guard: Guard = Util.get_item_guard_ignoring_not(state_is_active_item)
+	var guard: StateIsActiveGuard = Util.get_item_guard_ignoring_not(
+		state_is_active_item
+	)
+
+	assert(guard is StateIsActiveGuard)
+
 	var state: StateChartState = get_node(node_path)
 	var rel_state_path: NodePath = transition.get_path_to(state)
 	var es: EditorSettings = EditorInterface.get_editor_settings()
@@ -178,7 +183,7 @@ func _set_state_is_active_item_path(state_is_active_item: TreeItem, node_path: N
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var item: TreeItem = get_item_at_position(at_position)
-	var state_path: NodePath = data.get("nodes")[0]
+	var state_path: NodePath = data["nodes"][0]
 
 	_set_state_is_active_item_path(item, state_path)
 
@@ -296,7 +301,11 @@ func _on_self_item_mouse_selected(mouse_position: Vector2, mouse_button_index: i
 
 func _on_self_item_edited() -> void:
 	var edited_item: TreeItem = get_edited()
-	var guard: Guard = Util.get_item_guard_ignoring_not(edited_item)
+	var guard: ExpressionGuard =\
+		Util.get_item_guard_ignoring_not(edited_item)
+
+	assert(guard is ExpressionGuard)
+
 	var new_expression: String = edited_item.get_text(0)
 	var es: EditorSettings = EditorInterface.get_editor_settings()
 
@@ -662,11 +671,17 @@ func _popup_add_guard_behavior(tree_item: TreeItem, popup_button: PopupButton) -
 		added_item.set_meta("guard", added_guard)
 	elif popup_button == PopupButton.ADD_EXPRESSION_GUARD:
 		added_guard = ExpressionGuard.new()
-		added_item = add_expression_guard_item(tree_item, added_guard)
+		added_item = add_expression_guard_item(
+			tree_item,
+			added_guard as ExpressionGuard,
+		)
 		added_item.set_meta("guard", added_guard)
 	elif popup_button == PopupButton.ADD_STATE_IS_ACTIVE_GUARD:
 		added_guard = StateIsActiveGuard.new()
-		added_item = add_state_is_active_guard_item(tree_item, added_guard)
+		added_item = add_state_is_active_guard_item(
+			tree_item,
+			added_guard as StateIsActiveGuard,
+		)
 		added_item.set_meta("guard", added_guard)
 
 	if guard is AllOfGuard or guard is AnyOfGuard:
