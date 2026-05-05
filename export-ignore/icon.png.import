@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc8vwjv0vfkhl"
-path="res://.godot/imported/icon.png-115a5b06c6696a38af55863e338a339c.ctex"
+path="res://.godot/imported/icon.png-6a0a30f199d3e30aa6d8c13e9dbe6ab5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/guard-editor-for-godot-state-charts/icon.png"
-dest_files=["res://.godot/imported/icon.png-115a5b06c6696a38af55863e338a339c.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/export-ignore/icon.png"
+dest_files=["res://.godot/imported/icon.png-6a0a30f199d3e30aa6d8c13e9dbe6ab5.ctex"]
 
 [params]
 

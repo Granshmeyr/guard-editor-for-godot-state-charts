@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsvo0i1udvnn2"
-path="res://.godot/imported/popup_not_icon.svg-94d6c5d4425008046f60cb8acdb550bc.ctex"
+path="res://.godot/imported/popup_not_icon.svg-c74ae95c1015e02da80ab3d8e379c368.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/guard_editor_for_godot_state_charts/popup_not_icon.svg"
-dest_files=["res://.godot/imported/popup_not_icon.svg-94d6c5d4425008046f60cb8acdb550bc.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/popup_not_icon.svg"
+dest_files=["res://.godot/imported/popup_not_icon.svg-c74ae95c1015e02da80ab3d8e379c368.ctex"]
 
 [params]
 

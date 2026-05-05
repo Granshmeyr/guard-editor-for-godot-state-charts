@@ -8,53 +8,28 @@ const ERROR_BG_COLOR: Color = Color.DARK_RED
 const ERROR_COLOR: Color = Color("#FFFFFFD0")
 const EMPTY_ARRAY_SLOT_LABEL: String = "<--- EMPTY ARRAY SLOT --->"
 
-const _DATA_PATH: String = "res://addons/guard_editor_for_godot_state_charts/data.json"
-
 static var _did_reimport: bool
-static var _all_files: PackedStringArray = PackedStringArray(
-	[
-		# state charts
-		"res://addons/godot_state_charts/all_of_guard.svg",
-		"res://addons/godot_state_charts/animation_player_state.svg",
-		"res://addons/godot_state_charts/animation_tree_state.svg",
-		"res://addons/godot_state_charts/any_of_guard.svg",
-		"res://addons/godot_state_charts/atomic_state.svg",
-		"res://addons/godot_state_charts/compound_state.svg",
-		"res://addons/godot_state_charts/expression_guard.svg",
-		"res://addons/godot_state_charts/guard.svg",
-		"res://addons/godot_state_charts/history_state.svg",
-		"res://addons/godot_state_charts/not_guard.svg",
-		"res://addons/godot_state_charts/parallel_state.svg",
-		"res://addons/godot_state_charts/state_chart.svg",
-		"res://addons/godot_state_charts/state_is_active_guard.svg",
-		"res://addons/godot_state_charts/toggle_sidebar.svg",
-		"res://addons/godot_state_charts/transition.svg",
-		# custom
-		"res://addons/guard_editor_for_godot_state_charts/all_of_guard_orange.svg",
-		"res://addons/guard_editor_for_godot_state_charts/any_of_guard_orange.svg",
-		"res://addons/guard_editor_for_godot_state_charts/atomic_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/chevron_down.svg",
-		"res://addons/guard_editor_for_godot_state_charts/chevron_up.svg",
-		"res://addons/guard_editor_for_godot_state_charts/compound_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/expression_guard_blue.svg",
-		"res://addons/guard_editor_for_godot_state_charts/expression_guard_orange.svg",
-		"res://addons/guard_editor_for_godot_state_charts/history_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_icon.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_all_of_guard_orange.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_any_of_guard_orange.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_atomic_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_compound_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_expression_guard_blue.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_history_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/not_parallel_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/parallel_state_green.svg",
-		"res://addons/guard_editor_for_godot_state_charts/state_is_active_guard_orange.svg",
-	]
-)
+static var _godot_state_charts_files: PackedStringArray = PackedStringArray([
+	"res://addons/godot_state_charts/all_of_guard.svg",
+	"res://addons/godot_state_charts/animation_player_state.svg",
+	"res://addons/godot_state_charts/animation_tree_state.svg",
+	"res://addons/godot_state_charts/any_of_guard.svg",
+	"res://addons/godot_state_charts/atomic_state.svg",
+	"res://addons/godot_state_charts/compound_state.svg",
+	"res://addons/godot_state_charts/expression_guard.svg",
+	"res://addons/godot_state_charts/guard.svg",
+	"res://addons/godot_state_charts/history_state.svg",
+	"res://addons/godot_state_charts/not_guard.svg",
+	"res://addons/godot_state_charts/parallel_state.svg",
+	"res://addons/godot_state_charts/state_chart.svg",
+	"res://addons/godot_state_charts/state_is_active_guard.svg",
+	"res://addons/godot_state_charts/toggle_sidebar.svg",
+	"res://addons/godot_state_charts/transition.svg",
+])
 
 
 static func _static_init() -> void:
-	var data: Variant = Util.load_json(_DATA_PATH)
+	var data: Variant = Util.load_json(_get_data_path())
 	var editor_scale: float = EditorInterface.get_editor_scale()
 	var fs: EditorFileSystem = EditorInterface.get_resource_filesystem()
 
@@ -64,11 +39,14 @@ static func _static_init() -> void:
 
 static func _do_reimport() -> void:
 	var editor_scale: float = EditorInterface.get_editor_scale()
-	var new_data: Dictionary = {"previous_editor_scale": editor_scale}
+	var new_data := {"previous_editor_scale": editor_scale}
 	var fs: EditorFileSystem = EditorInterface.get_resource_filesystem()
+	var all_files: PackedStringArray = \
+		_godot_state_charts_files + _get_files()
 
-	Util.save_json(_DATA_PATH, new_data)
-	fs.reimport_files(_all_files)
+	Util.save_json(_get_data_path(), new_data)
+	fs.reimport_files(all_files)
+
 	_did_reimport = true
 
 
@@ -163,66 +141,71 @@ class Icon:
 			return
 
 		var theme: Theme = EditorInterface.get_editor_theme()
+		var folder: String = GuardEditorData._get_folder()
 
 		# BEGIN custom
-		all_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/all_of_guard_orange.svg"
+		all_of_guard_orange = load(
+			"res://addons/%s/all_of_guard_orange.svg" % folder,
 		)
-		any_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/any_of_guard_orange.svg"
+		any_of_guard_orange = load(
+			"res://addons/%s/any_of_guard_orange.svg" % folder,
 		)
-		arrow_up = preload("res://addons/guard_editor_for_godot_state_charts/chevron_up.svg")
-		arrow_down = preload("res://addons/guard_editor_for_godot_state_charts/chevron_down.svg")
-		atomic_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/atomic_state_green.svg"
+		arrow_up = load(
+			"res://addons/%s/chevron_up.svg" % folder,
 		)
-		compound_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/compound_state_green.svg"
+		arrow_down = load(
+			"res://addons/%s/chevron_down.svg" % folder,
 		)
-		history_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/history_state_green.svg"
+		atomic_state_green = load(
+			"res://addons/%s/atomic_state_green.svg" % folder,
 		)
-		expression_guard_blue = preload(
-			"res://addons/guard_editor_for_godot_state_charts/expression_guard_blue.svg"
+		compound_state_green = load(
+			"res://addons/%s/compound_state_green.svg" % folder,
 		)
-		not_all_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_all_of_guard_orange.svg"
+		history_state_green = load(
+			"res://addons/%s/history_state_green.svg" % folder,
 		)
-		not_any_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_any_of_guard_orange.svg"
+		expression_guard_blue = load(
+			"res://addons/%s/expression_guard_blue.svg" % folder,
 		)
-		not_atomic_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_atomic_state_green.svg"
+		not_all_of_guard_orange = load(
+			"res://addons/%s/not_all_of_guard_orange.svg" % folder,
 		)
-		not_compound_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_compound_state_green.svg"
+		not_any_of_guard_orange = load(
+			"res://addons/%s/not_any_of_guard_orange.svg" % folder,
 		)
-		not_expression_guard_blue = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_expression_guard_blue.svg"
+		not_atomic_state_green = load(
+			"res://addons/%s/not_atomic_state_green.svg" % folder,
 		)
-		not_history_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_history_state_green.svg"
+		not_compound_state_green = load(
+			"res://addons/%s/not_compound_state_green.svg" % folder,
 		)
-		not_parallel_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/not_parallel_state_green.svg"
+		not_expression_guard_blue = load(
+			"res://addons/%s/not_expression_guard_blue.svg" % folder,
 		)
-		parallel_state_green = preload(
-			"res://addons/guard_editor_for_godot_state_charts/parallel_state_green.svg"
+		not_history_state_green = load(
+			"res://addons/%s/not_history_state_green.svg" % folder,
 		)
-		popup_all_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/popup_all_of_guard_orange.svg"
+		not_parallel_state_green = load(
+			"res://addons/%s/not_parallel_state_green.svg" % folder,
 		)
-		popup_any_of_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/popup_any_of_guard_orange.svg"
+		parallel_state_green = load(
+			"res://addons/%s/parallel_state_green.svg" % folder,
 		)
-		popup_expression_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/popup_expression_guard_orange.svg"
+		popup_all_of_guard_orange = load(
+			"res://addons/%s/popup_all_of_guard_orange.svg" % folder,
 		)
-		popup_state_is_active_guard_orange = preload(
-			"res://addons/guard_editor_for_godot_state_charts/popup_state_is_active_guard_orange.svg"
+		popup_any_of_guard_orange = load(
+			"res://addons/%s/popup_any_of_guard_orange.svg" % folder,
 		)
-		popup_not_icon = preload(
-			"res://addons/guard_editor_for_godot_state_charts/popup_not_icon.svg"
+		popup_expression_guard_orange = load(
+			"res://addons/%s/popup_expression_guard_orange.svg" % folder,
+		)
+		popup_state_is_active_guard_orange = load(
+			"res://addons/%s/popup_state_is_active_guard_orange.svg" % folder,
+		)
+		popup_not_icon = load(
+			"res://addons/%s/popup_not_icon.svg" % folder,
 		)
 		popup_delete_icon = theme.get_icon("Remove", "EditorIcons")
 		# END custom
@@ -366,3 +349,54 @@ class Util:
 		var mk_err: int = d.make_dir(path)
 
 		return mk_err == OK
+
+
+static func _get_data_path() -> String:
+	var folder: String = _get_folder()
+	var data_path: String = "res://addons/%s/data.json" % folder
+
+	return data_path
+
+
+static func _get_files() -> PackedStringArray:
+	var folder: String = _get_folder()
+	var files := PackedStringArray([
+		"res://addons/%s/all_of_guard_orange.svg" % folder,
+		"res://addons/%s/any_of_guard_orange.svg" % folder,
+		"res://addons/%s/atomic_state_green.svg" % folder,
+		"res://addons/%s/chevron_down.svg" % folder,
+		"res://addons/%s/chevron_up.svg" % folder,
+		"res://addons/%s/compound_state_green.svg" % folder,
+		"res://addons/%s/expression_guard_blue.svg" % folder,
+		"res://addons/%s/expression_guard_orange.svg" % folder,
+		"res://addons/%s/history_state_green.svg" % folder,
+		"res://addons/%s/not_all_of_guard_orange.svg" % folder,
+		"res://addons/%s/not_any_of_guard_orange.svg" % folder,
+		"res://addons/%s/not_atomic_state_green.svg" % folder,
+		"res://addons/%s/not_compound_state_green.svg" % folder,
+		"res://addons/%s/not_expression_guard_blue.svg" % folder,
+		"res://addons/%s/not_history_state_green.svg" % folder,
+		"res://addons/%s/not_parallel_state_green.svg" % folder,
+		"res://addons/%s/parallel_state_green.svg" % folder,
+		"res://addons/%s/state_is_active_guard_orange.svg" % folder,
+	])
+
+	return files
+
+
+static func _get_folder() -> String:
+	const EXPORT_FOLDER := "guard_editor_for_godot_state_charts"
+	const CLONE_FOLDER := "guard-editor-for-godot-state-charts"
+
+	var folder: String
+
+	if FileAccess.file_exists(
+		"res://addons/%s/all_of_guard_orange.svg" % EXPORT_FOLDER,
+	):
+		folder = EXPORT_FOLDER
+	elif FileAccess.file_exists(
+		"res://addons/%s/all_of_guard_orange.svg" % CLONE_FOLDER,
+	):
+		folder = CLONE_FOLDER
+
+	return folder

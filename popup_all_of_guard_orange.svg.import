@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clbdnjrmnmpms"
-path="res://.godot/imported/popup_all_of_guard_orange.svg-1979a3f9328a562ea9164203ad47a51d.ctex"
+path="res://.godot/imported/popup_all_of_guard_orange.svg-a9c4f0185e46b0311b815f84c8958b8f.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/guard_editor_for_godot_state_charts/popup_all_of_guard_orange.svg"
-dest_files=["res://.godot/imported/popup_all_of_guard_orange.svg-1979a3f9328a562ea9164203ad47a51d.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/popup_all_of_guard_orange.svg"
+dest_files=["res://.godot/imported/popup_all_of_guard_orange.svg-a9c4f0185e46b0311b815f84c8958b8f.ctex"]
 
 [params]
 

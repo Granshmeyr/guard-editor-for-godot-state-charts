@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxlb7lx4dcy37"
-path="res://.godot/imported/parallel_state_green.svg-6089206e89a5be04018180a66b33e42d.ctex"
+path="res://.godot/imported/parallel_state_green.svg-ebf417f9b3ecc988baa92735b9f0d065.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/guard_editor_for_godot_state_charts/parallel_state_green.svg"
-dest_files=["res://.godot/imported/parallel_state_green.svg-6089206e89a5be04018180a66b33e42d.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/parallel_state_green.svg"
+dest_files=["res://.godot/imported/parallel_state_green.svg-ebf417f9b3ecc988baa92735b9f0d065.ctex"]
 
 [params]
 

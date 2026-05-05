@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crc1gicjfuo45"
-path="res://.godot/imported/chevron_down.svg-f6123f8cc655174a28477e0f7c2e73ae.ctex"
+path="res://.godot/imported/chevron_down.svg-b18373b4d0a36316e6b58607dba4a70c.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/guard_editor_for_godot_state_charts/chevron_down.svg"
-dest_files=["res://.godot/imported/chevron_down.svg-f6123f8cc655174a28477e0f7c2e73ae.ctex"]
+source_file="res://addons/guard-editor-for-godot-state-charts/chevron_down.svg"
+dest_files=["res://.godot/imported/chevron_down.svg-b18373b4d0a36316e6b58607dba4a70c.ctex"]
 
 [params]
 
