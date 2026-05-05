@@ -17,5 +17,5 @@ mono_crash.*.json
 
 
 # guard editor
-addons/guard_editor_for_godot_state_charts/data.json
-demo.tscproj
+data.json
+export-ignore/demo.tscproj
