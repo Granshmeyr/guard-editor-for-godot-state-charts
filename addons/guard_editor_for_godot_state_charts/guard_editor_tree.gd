@@ -301,7 +301,7 @@ func _on_self_item_mouse_selected(mouse_position: Vector2, mouse_button_index: i
 
 func _on_self_item_edited() -> void:
 	var edited_item: TreeItem = get_edited()
-	var guard: ExpressionGuard =\
+	var guard: ExpressionGuard = \
 		Util.get_item_guard_ignoring_not(edited_item)
 
 	assert(guard is ExpressionGuard)
